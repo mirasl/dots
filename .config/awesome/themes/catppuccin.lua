@@ -104,15 +104,15 @@ theme.menu_width  = dpi(150)
 
 -- TAGS ===================================================================================
 theme.tags = { 
-    "   MAIN   ",
-    "   BROWSER   ",
-    "   MUSIC   ", 
-    "   I   ", 
-    "   I I   ", 
-    "   I I I   ",
-    "   I V  ",
-    "   V   ",
-    "   V I   ",
+    "   command   ",
+    "   browser i   ",
+    "   browser ii   ",
+    "   code   ", 
+    "   i   ", 
+    "   ii   ", 
+    "   iii   ",
+    "   iv  ",
+    "   music   ",
 }
 
 theme.workspace_colors = {
