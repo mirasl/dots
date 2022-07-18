@@ -12,7 +12,7 @@ local dpi = xresources.apply_dpi
 local gfs = require("gears.filesystem")
 local themes_path = gfs.get_themes_dir()
 
-local icon_path = os.getenv("HOME") .. "/.config/awesome/icons/"
+local icon_path = os.getenv("HOME") .. "/.config/awesome/assets/icons/"
 
 local theme = {}
 
