@@ -16,7 +16,7 @@ theme.font            = "Simplifica 17"
 theme.font_u          = "Simplifica "
 theme.primary_color   = "#000000"--"#c93443"
 theme.secondary_color = "#000000"
-theme.wallpaper_path = "/usr/share/backgrounds/pink.jpg"
+theme.wallpaper_path = "/home/mira/.config/awesome/assets/wallpapers/pink.jpg"
 
 -- BG
 theme.bg_normal     = "#222222"
