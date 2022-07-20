@@ -4,25 +4,15 @@ Hello there, thanks for dropping by! These are my linux dotfiles. Feel free to r
 
 # Programs I use
 
-|-----------------------|---------------------------------------|
 | Window manager        | awesomewm*                            |
-|-----------------------|---------------------------------------|
 | Application launcher  | rofi*                                 |
-|-----------------------|---------------------------------------|
 | Compositor            | picom jonaburg fork*                  |
-|-----------------------|---------------------------------------|
 | Terminal              | alacritty*                            |
-|-----------------------|---------------------------------------|
 | Brightness tool       | brillo (I like its options/arguments) |
-|-----------------------|---------------------------------------|
 | Browser               | firefox                               |
-|-----------------------|---------------------------------------|
 | File manager          | ranger/thunar                         |
-|-----------------------|---------------------------------------|
 | Music player          | spotify                               |
-|-----------------------|---------------------------------------|
 | Editor                | vscode                                |
-|-----------------------|---------------------------------------|
 *configs included in dotfiles
 
 # Setup
@@ -78,9 +68,9 @@ Thanks to some light bash scripting, awesomewm config, and janky tkinter animati
 
 These are my default hotkeys. You can change these in rc.lua, under the BINDINGS section. My "super" key is the windows key, but you can also change this in rc.lua.
 
-| super ; | toggle sidebar |
-| super shift ; | toggle taskbar |
-| super ctrl ; | enter logout screen |
-| super up_arrow | raise opacity of current window |
-| super down_arrow | lower opacity of current window |
-| super shift up_arrow | set opacity of current window to 100 |
+| super ;               | toggle sidebar                        |
+| super shift ;         | toggle taskbar                        |
+| super ctrl ;          | enter logout screen                   |
+| super up_arrow        | raise opacity of current window       |
+| super down_arrow      | lower opacity of current window       |
+| super shift up_arrow  | set opacity of current window to 100  |
