@@ -29,6 +29,7 @@ On arch:
 First, clone the repo (I recommend doing it from home directory):  
 `git clone https://github.com/mirasl/dots`  
 `cd dots`  
+  
 Now is your chance to back stuff up! (If you don't have config files for these programs already, you should be fine.)  
 Backup your awesome configs: `mv ~/.config/awesome ~/.config/awesome_backup`  
 Backup your picom config: `mv ~/.config/picom ~/.config/picom_backup`  
@@ -40,6 +41,7 @@ Move awesome: `cp -r .config/awesome ~/.config/awesome`
 Move picom: `cp -r .config/picom ~/.config/picom`  
 Move alacritty: `cp -r .config/alacritty ~/.config/alacritty`  
 Move rofi: `cp -r .config/rofi ~/.config/rofi`  
+  
 Important note! My setup includes automated theme switching via the desktop menu. This relies on having picom, alacritty, and rofi setup in the way I configured them and otherwise could mess things up. See the Automated Theme Switching section below for more info.  
   
 3. Add ~/bin to $PATH  
