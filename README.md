@@ -25,6 +25,7 @@ On arch:
 `yay -S acpi alacritty alsa-utils awesome cmatrix code firefox pavucontrol pulseaudio picom-jonaburg-git python python-pillow python-pip rofi ranger rofi-calc spotify thunar`  
   
 2. Install my files  
+  
 First, clone the repo (I recommend doing it from home directory):  
 `git clone https://github.com/mirasl/dots`  
 `cd dots`  
@@ -48,6 +49,7 @@ Source ~/bin to $PATH environment variable:
 (side note, many of the bash scripts are just meant to be used by the awesomewm config files in the interest of refactored code, you don't need to worry about using them yourself all that much.)  
   
 4. Install the fonts  
+  
 Here are the fonts I used:  
 CHICKEN Pie  
 Best Valentina  
