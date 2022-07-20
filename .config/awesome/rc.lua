@@ -1,4 +1,4 @@
--- MAIN CONFIG FILE --
+--- MAIN CONFIG FILE --
 
 -- This file is simply a modified, not completely rewritten, version of the
 -- default rc.lua. It includes configuration for the top taskbar, but not for
@@ -31,9 +31,6 @@ local volume_widget = require('awesome-wm-widgets.volume-widget.volume')
 local calendar_widget = require("awesome-wm-widgets.calendar-widget.calendar")
 
 local volume_width = beautiful.taskbar_volume_width or 70
-
---local posix = require("posix")
---posix.setEnv("PATH", posix.getEnv("PATH")..":$HOME/bin")
 
 sb = require("sidebar") -- see sidebar.lua
 
@@ -707,7 +704,7 @@ client.connect_signal("unfocus", function(c) c.border_color = beautiful.border_n
 
 -- {{{ AUTOSTART
 --awful.spawn.with_shell("nitrogen --restore")
-awful.spawn.with_shell("picom --experimental-backend")
+awful.spawn.with_shell("picom --experimental-backends")
 if hacker_mode then
     awful.spawn.with_shell("epicstart.sh")
 end

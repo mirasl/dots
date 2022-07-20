@@ -13,6 +13,8 @@ local menubar = require("menubar")
 local hotkeys_popup = require("awful.hotkeys_popup") -- Enable hotkeys help widget for VIM and other apps
 local current_theme = require("current_theme") -- see "current_theme.lua"
 
+local SCREEN_WIDTH = 1920
+
 local themes = {
     "fruit",
     "fantasy",
@@ -512,7 +514,12 @@ table.insert(sidebar, quote_box)
 -- }}}
 
 -- {{{ STRUTS (makes sidebar push other clients):
-local strut_width = sb_width + sb_x - 10
+local strut_width = 0
+if align_position == "left" then
+    strut_width = sb_width + sb_x - 10
+elseif align_position == "right" then
+    strut_width = SCREEN_WIDTH - sb_x
+end
 
 if background_enabled then
     strut_width = background_margin + strut_width
