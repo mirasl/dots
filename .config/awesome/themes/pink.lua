@@ -57,7 +57,14 @@ theme.titlebar_bg_focus = theme.secondary_color
 -- SIDEBAR --
 theme.sb_fg = "#f59fab"
 theme.sb_bg = "#000000"
+theme.sb_width = 200
+theme.sb_x = 1920 - theme.sb_width - 40
 theme.sb_opacity = 1
+theme.volume_color_main = theme.sb_fg
+theme.volume_color_bg = "#1a1a1a"
+theme.brightness_color_main = theme.sb_fg
+theme.brightness_color_bg = "#1a1a1a"
+theme.sb_align_position = "right"
 
 
 
