@@ -21,9 +21,9 @@ Hello there, thanks for dropping by! These are my linux dotfiles. Feel free to r
 /
 1. Install the packages/
 /
-On arch:/
-`yay -S acpi alacritty alsa-utils awesome cmatrix code firefox pavucontrol pulseaudio picom-jonaburg-git python python-pillow python-pip rofi ranger rofi-calc spotify thunar`/
-/
+On arch:<space>\<space>
+`yay -S acpi alacritty alsa-utils awesome cmatrix code firefox pavucontrol pulseaudio picom-jonaburg-git python python-pillow python-pip rofi ranger rofi-calc spotify thunar`<space>\<space>
+<space>\<space>
 2. Install my files/
 First, clone the repo (I recommend doing it from home directory):/
 `git clone https://github.com/mirasl/dots`/
