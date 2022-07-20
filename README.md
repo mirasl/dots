@@ -72,6 +72,8 @@ Thanks to some light bash scripting, awesomewm config, and janky tkinter animati
   
 These are my default hotkeys. You can change these in rc.lua, under the BINDINGS section. My "super" key is the windows key, but you can also change this in rc.lua.  
   
+| Hotkey                | Function                              |
+|-----------------------|---------------------------------------|
 | super ;               | toggle sidebar                        |  
 | super shift ;         | toggle taskbar                        |  
 | super ctrl ;          | enter logout screen                   |  
