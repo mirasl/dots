@@ -4,15 +4,25 @@ Hello there, thanks for dropping by! These are my linux dotfiles. Feel free to r
 
 # Programs I use
 
-| Window manager | awesomewm* |
-| Application launcher | rofi* |
-| Compositor | picom jonaburg fork* |
-| Terminal | alacritty* |
-| Brightness tool | brillo (I like its options/arguments) |
-| Browser | firefox |
-| File manager | ranger/thunar |
-| Music player | spotify |
-| Editor | vscode |
+|-----------------------|---------------------------------------|
+| Window manager        | awesomewm*                            |
+|-----------------------|---------------------------------------|
+| Application launcher  | rofi*                                 |
+|-----------------------|---------------------------------------|
+| Compositor            | picom jonaburg fork*                  |
+|-----------------------|---------------------------------------|
+| Terminal              | alacritty*                            |
+|-----------------------|---------------------------------------|
+| Brightness tool       | brillo (I like its options/arguments) |
+|-----------------------|---------------------------------------|
+| Browser               | firefox                               |
+|-----------------------|---------------------------------------|
+| File manager          | ranger/thunar                         |
+|-----------------------|---------------------------------------|
+| Music player          | spotify                               |
+|-----------------------|---------------------------------------|
+| Editor                | vscode                                |
+|-----------------------|---------------------------------------|
 *configs included in dotfiles
 
 # Setup
