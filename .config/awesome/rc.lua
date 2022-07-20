@@ -30,6 +30,11 @@ local cpu_widget = require("awesome-wm-widgets.cpu-widget.cpu-widget")
 local volume_widget = require('awesome-wm-widgets.volume-widget.volume')
 local calendar_widget = require("awesome-wm-widgets.calendar-widget.calendar")
 
+local volume_width = beautiful.taskbar_volume_width or 70
+
+--local posix = require("posix")
+--posix.setEnv("PATH", posix.getEnv("PATH")..":$HOME/bin")
+
 sb = require("sidebar") -- see sidebar.lua
 
 -- when client with a matching name is opened:
@@ -99,7 +104,7 @@ awful.layout.layouts = {
 -- Theme select:
 thememenu = {}
 for i=1, #themes do
-    table.insert(thememenu, {themes[i], function() awful.util.spawn("theme.sh "..i) end })
+    table.insert(thememenu, {themes[i], function() awful.spawn.with_shell("transition.py "..i) end })
 end
 
 -- Main menu:
@@ -237,6 +242,9 @@ awful.screen.connect_for_each_screen(function(s)
         })
     end
     
+    -- volume_spacer = wibox.widget.textbox(" ")
+    -- volume_spacer.forced_width = volume_width
+
     -- Top wibox:
     local wibox_visible = theme ~= 3 -- hide top bar entirely if theme is 3 (pico8)
     s.mywibox = wibox({ 
@@ -268,11 +276,44 @@ awful.screen.connect_for_each_screen(function(s)
                 main_color = beautiful.volume_color_main or "#8334eb",
                 bg_color = beautiful.volume_color_bg or "#ba8ff2",
             },
+            volume_spacer,
             mytextclock,
             s.mylayoutbox,
             spacing = 5,
         },
     }
+
+    -- local volume_x = volume_spacer.x
+    -- local volume_y = volume_spacer.y
+
+    -- s.volume_container = wibox({
+    --     visible = true,
+    --     ontop = true,
+    --     screen = screen.primary,
+    --     y = volume_y,
+    --     x = volume_x,
+    --     width = volume_width,
+    --     height = 20, --2*interval + MORTAR,
+    --     shape = custom_shape,
+    --     --opacity = 0
+    --     bg = volume_color_main,
+    --     -- fg = sb_fg,
+    -- })
+
+    -- s.volume_container:setup {
+    --     layout = wibox.layout.rotate,
+    --     direction = "north",
+    --     {
+    --         layout = wibox.container.place, 
+    --         volume_widget{
+    --             widget_type = 'horizontal_bar',
+    --             width = volume_width,
+    --             margins = 0,
+    --             main_color = volume_color_main,
+    --             bg_color = volume_color_bg,
+    --         },
+    --     },
+    -- }
 end)
 -- }}}
 
