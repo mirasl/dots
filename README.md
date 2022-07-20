@@ -4,6 +4,8 @@ Hello there, thanks for dropping by! These are my linux dotfiles. Feel free to r
 
 # Programs I use
 
+| Tool                  | Program                               |
+|-----------------------|---------------------------------------|
 | Window manager        | awesomewm*                            |
 | Application launcher  | rofi*                                 |
 | Compositor            | picom jonaburg fork*                  |
