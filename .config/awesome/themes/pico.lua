@@ -1,4 +1,4 @@
--- PICO 8 THEME --
+-- PICO THEME --
 
 local theme_assets = require("beautiful.theme_assets")
 local xresources = require("beautiful.xresources")

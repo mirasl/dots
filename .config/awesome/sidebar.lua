@@ -18,7 +18,7 @@ local SCREEN_WIDTH = 1920
 local themes = {
     "fruit",
     "fantasy",
-    "pico8",
+    "pico",
     "whisper",
     "pink",
     "catppuccin",
