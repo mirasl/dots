@@ -12,7 +12,7 @@ local icon_path = os.getenv("HOME") .. "/.config/awesome/assets/icons/"
 local theme = {}
 
 -- OVERALL IMPORTANT STUFF --
-theme.font            = "CHICKEN Pie 13"
+theme.font            = "Courier 10"
 theme.primary_color   = "#ababab"
 theme.secondary_color = "#b4c2cf"
 theme.wallpaper_path = "/home/mira/.config/awesome/assets/wallpapers/celeste.jpg"
@@ -20,7 +20,6 @@ theme.taskbar_width = 1920 - (26*2)
 theme.taskbar_height = 30
 theme.taskbar_x = 26
 theme.taskbar_y = 12
-
 
 theme.bg_normal     = "#222222"
 theme.bg_focus      = theme.secondary_color
@@ -42,7 +41,6 @@ theme.border_marked = "#91231c"
 theme.titlebar_bg = theme.primary_color
 theme.titlebar_bg_focus = theme.secondary_color
 theme.titlebar_size = dpi(30)
-
 
 -- Generate taglist squares:
 local taglist_square_size = dpi(4)

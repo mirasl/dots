@@ -76,6 +76,8 @@ local schoology_hover = beautiful.sb_schoology_hover or "#005be3"
 local source_hover = beautiful.sb_source_hover or "#34deeb"
 local github_hover = beautiful.sb_github_hover or "#c2c2c2"
 
+local start_visible = beautiful.sb_start_visible or true
+
 local SB = {}
 
 local name = "Mira"
@@ -563,5 +565,9 @@ awful.spawn.easy_async_with_shell("brillo -q",
     function(stdout) 
         horizontal_bar_widget:set_volume_level(" "..100 - (100 - tonumber(stdout))*2) 
     end)
+
+for i=1, #sidebar do
+    sidebar[i].visible = (theme ~= 3) -- pico theme = invisible sidebar by default
+end
 
 return SB
