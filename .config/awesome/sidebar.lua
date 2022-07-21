@@ -117,7 +117,7 @@ if background_enabled then
     background = wibox({
         visible = true,
         ontop = false,
-        screen = scrcalendar_widgeteen.primary,
+        screen = screen.primary,
         y = sb_y - background_margin,--calendar_widget
         x = sb_x - background_margin,--calendar_widget
         width = sb_width + 2*background_margin,
