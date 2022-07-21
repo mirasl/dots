@@ -23,7 +23,6 @@ local theme = {}
 -- OVERALL IMPORTANT STUFF --
 theme.font            = "Blacksword 13"
 theme.font_u          = "Blacksword "
-theme.sb_width        = 250
 theme.primary_color   = "#57878c"--"#c93443"
 theme.secondary_color = "#47acd1"
 theme.wallpaper_path = "/home/mira/.config/awesome/assets/wallpapers/whisper.jpg"
@@ -60,6 +59,10 @@ theme.titlebar_bg = theme.primary_color
 theme.titlebar_bg_focus = theme.secondary_color
 theme.titlebar_size = dpi(0)
 
+theme.sb_align_position = "right"
+theme.sb_width = 250
+theme.sb_x = 1920 - theme.sb_width - 40
+theme.sb_height = 970
 
 -- Generate taglist squares:
 local taglist_square_size = dpi(4)
