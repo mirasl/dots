@@ -33,7 +33,7 @@ theme.bg_urgent     = "#ff0000"
 theme.bg_minimize   = "#444444"
 theme.bg_systray    = theme.bg_normal
 
-theme.fg_normal     = "#aaaaaa"
+theme.fg_normal     = "#edb7ec"
 theme.fg_focus      = "#ffffff"
 theme.fg_urgent     = "#ffffff"
 theme.fg_minimize   = "#ffffff"
@@ -48,6 +48,10 @@ theme.titlebar_bg = theme.primary_color
 theme.titlebar_bg_focus = theme.secondary_color
 theme.titlebar_size = dpi(30)
 
+theme.sb_width = 220
+theme.sb_background_enabled = true
+theme.sb_background_color = theme.secondary_color
+theme.sb_bg = theme.primary_color
 
 -- Generate taglist squares:
 local taglist_square_size = dpi(4)
