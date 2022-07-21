@@ -8,11 +8,7 @@
 --                               __/ | --
 --                              |___/  --
 -----------------------------------------
--- (AKA blinding light theme)
-
--- Probably will never use this one, it just hurts my eyes tbh lol
-
-
+-- light theme
 
 local theme_assets = require("beautiful.theme_assets")
 local xresources = require("beautiful.xresources")
@@ -26,9 +22,9 @@ local icon_path = os.getenv("HOME") .. "/.config/awesome/assets/icons/"
 local theme = {}
 
 -- OVERALL IMPORTANT STUFF --
-theme.font            = "CHICKEN Pie 13"
-theme.primary_color   = "#323440"
-theme.secondary_color = "#3d4559"
+theme.font            = "Simplifica 18"
+theme.primary_color   = "#ccdaed" --"#b2c3db"--"#dfe9f5"
+theme.secondary_color = "#cadaed"
 theme.wallpaper_path = "/home/mira/.config/awesome/assets/wallpapers/fluffy_fantasy.jpg"
 theme.taskbar_width = 1820
 theme.taskbar_height = 30
@@ -41,8 +37,8 @@ theme.bg_urgent     = "#ff0000"
 theme.bg_minimize   = "#444444"
 theme.bg_systray    = theme.bg_normal
 
-theme.fg_normal     = "#aaaaaa"
-theme.fg_focus      = "#ffffff"
+theme.fg_normal     = "#57878c"
+theme.fg_focus      = "#273445"
 theme.fg_urgent     = "#ffffff"
 theme.fg_minimize   = "#ffffff"
 
@@ -56,6 +52,12 @@ theme.titlebar_bg = theme.primary_color
 theme.titlebar_bg_focus = theme.secondary_color
 theme.titlebar_size = dpi(0)
 
+theme.font_u = "Simplifica "
+
+theme.volume_color_main = "#273445"
+theme.volume_color_bg = "#95abc9"
+theme.brightness_color_main = "#273445"
+theme.brightness_color_bg = "#95abc9"
 
 -- Generate taglist squares:
 local taglist_square_size = dpi(4)
