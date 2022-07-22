@@ -64,7 +64,7 @@ storybook ending
 pretty girls script  
   
 These fonts are included in the fonts folder of this repository. To install the fonts:  
-`sudo cp fonts /usr/share/fonts`  
+`sudo cp -r fonts /usr/share/fonts`  
 Then refresh system fonts:  
 `fc-cache -v`  
   
