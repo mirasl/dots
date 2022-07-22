@@ -68,7 +68,7 @@ The fonts should become globally accessible by installing them, unzipping them i
 Then do `fc-cache -v` to refresh system fonts.  
   
 # Automated theme switching:  
-Thanks to some light bash scripting, awesomewm config, and janky tkinter animations, you can switch the general theme of your computer via the main menu, available by right-clicking on the desktop. However, this only changes a few things! It affects the placement and theming of the taskbar (with the tags and overall system info) and the sidebar (available with mod+;), as well as the wallpaper. Other configurations, such as the terminal colors or rofi theme, are up to you to configure (I get the feeling that trying to automate all of them would end up with a huge tangled mess of a computer, although I invite you to try if you are so inclined!). I currently have all other apps/programs set to the catppuccin theme, because that's the theme I use most often and it tends to go with the other themes fine.  
+Thanks to some light bash scripting, awesomewm config, and janky tkinter animations, you can switch the general theme of your computer via the main menu, available by right-clicking on the desktop. This changes the colors, fonts, and layout of the taskbar and sidebar, as well as the default look of alacritty.
   
 # My hotkeys:  
   
