@@ -370,7 +370,7 @@ globalkeys = gears.table.join(
     awful.key({ modkey, "Control"}, "Up", function ()
         awful.util.spawn("picom-trans -c 100") end, -- set opacity to 100
         {description = "set opacity to 100", group = "client"} ),
-    
+
     -- extra widget hotkeys:
     awful.key({ modkey,}, "semicolon", function() sb.toggle_sidebar() end, -- toggle sidebar
         {description = "toggle sidebar", group = "extra"} ),

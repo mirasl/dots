@@ -68,9 +68,10 @@ theme.sb_calendar_fg = '#94E2D5' -- teal
 theme.sb_quote_fg = '#cba6f7' -- mauve
 
 theme.sb_gmail_normal = '#a6e3a1' -- green
-theme.sb_onenote_normal = '#cba6f7' -- mauve
-theme.sb_schoology_normal = '#f38ba8' -- red
-theme.sb_source_normal = '#89dceb' -- sky
+theme.sb_lofi_normal = '#cba6f7' -- mauve
+theme.sb_reddit_normal = '#f38ba8' -- red
+theme.sb_itch_normal = '#89dceb' -- sky
+theme.sb_itch_hover = '#5eaab8'
 theme.sb_github_normal = '#f9e2af' -- yellow
 
 theme.sb_background_enabled = false

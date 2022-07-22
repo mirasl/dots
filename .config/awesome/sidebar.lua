@@ -65,15 +65,15 @@ local quote_fg = beautiful.sb_quote_fg or sb_fg
 
 -- link foregrounds:
 local gmail_normal = beautiful.sb_gmail_normal or sb_fg
-local onenote_normal = beautiful.sb_onenote_normal or sb_fg
-local schoology_normal = beautiful.sb_schoology_normal or sb_fg
-local source_normal = beautiful.sb_source_normal or sb_fg
+local reddit_normal = beautiful.sb_reddit_normal or sb_fg
+local lofi_normal = beautiful.sb_lofi_normal or sb_fg
+local itch_normal = beautiful.sb_itch_normal or sb_fg
 local github_normal = beautiful.sb_github_normal or sb_fg
 
 local gmail_hover = beautiful.sb_gmail_hover or "#389633"
-local onenote_hover = beautiful.sb_onenote_hover or "#672b8a"
-local schoology_hover = beautiful.sb_schoology_hover or "#005be3"
-local source_hover = beautiful.sb_source_hover or "#34deeb"
+local reddit_hover = beautiful.sb_reddit_hover or "#672b8a"
+local lofi_hover = beautiful.sb_lofi_hover or "#005be3"
+local itch_hover = beautiful.sb_itch_hover or "#34deeb"
 local github_hover = beautiful.sb_github_hover or "#c2c2c2"
 
 local start_visible = beautiful.sb_start_visible or true
@@ -406,16 +406,16 @@ local gmail_link = function()
     awful.spawn("xdg-open https://mail.google.com/mail/u/0/#inbox")
 end
 
-local schoology_link = function()
-    awful.spawn("xdg-open https://districtlms.seattleschools.org/home")
+local lofi_link = function()
+    awful.spawn("xdg-open https://www.youtube.com/watch?v=jfKfPfyJRdk")
 end
 
-local source_link = function()
-    awful.spawn("xdg-open https://ps.seattleschools.org/")
+local reddit_link = function()
+    awful.spawn("xdg-open https://www.reddit.com/")
 end
 
-local onenote_link = function()
-    awful.spawn("xdg-open https://seattleschools-my.sharepoint.com/personal/1misantalucia_seattleschools_org/_layouts/15/Doc.aspx?sourcedoc={c7bbd435-9621-44f1-bb07-45841dda3a92}&action=edit&wd=target%28Quick%20Notes.one%7C1af1ef3f-9e4f-46a8-bd86-ebfcbbcad471%2FUntitled%20Page%7C88f833b4-6e84-4d75-a31a-23030fe12fe3%2F%29&wdorigin=NavigationUrl")
+local itch_link = function()
+    awful.spawn("xdg-open https://itch.io/")
 end
 
 local github_link = function()
@@ -442,10 +442,10 @@ function create_button(text, command, fg_normal, fg_hover)
     return button
 end
 
-onenote = create_button("onenote", onenote_link, onenote_normal, onenote_hover)
+reddit = create_button("reddit", reddit_link, reddit_normal, reddit_hover)
 gmail = create_button("gmail", gmail_link, gmail_normal, gmail_hover)
-schoology = create_button("schoology", schoology_link, schoology_normal, schoology_hover)
-source = create_button("source", source_link, source_normal, source_hover)
+lofi = create_button("lofi", lofi_link, lofi_normal, lofi_hover)
+itch = create_button("itch", itch_link, itch_normal, itch_hover)
 github = create_button("github", github_link, github_normal, github_hover)
 
 button_box:setup {
@@ -457,9 +457,9 @@ button_box:setup {
     {
         wibox.widget.textbox(" "),
         gmail,
-        onenote,
-        schoology,
-        source,
+        reddit,
+        lofi,
+        itch,
         github,
         wibox.widget.textbox(" "),
         halign = "center",
