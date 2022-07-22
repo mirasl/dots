@@ -1,8 +1,8 @@
 #!/usr/bin/env python3    
 # TRAAAAAANSITION!!
-# This is a simple python script to draw a black square which moves across
+# This is a simple python script to draw a square which slides across
 # the screen like a bad powerpoint transition. In the middle, while the screen
-# is black, awesomewm restarts and changes theme.
+# is covered, awesomewm restarts and changes theme.
 
 from cmath import pi
 from tkinter import *
@@ -62,9 +62,9 @@ for i in range(0, 3):
     progress += "."
     loading_label.config(text=progress)
     root.update()
-    for i in range(1, 20):
+    for i in range(1, 40):
         root.lift() # must be constantly lifting to stay above awesomewm
-        time.sleep(0.01)
+        time.sleep(0.005)
 
 transition(out=True)
 
