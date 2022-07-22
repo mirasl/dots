@@ -47,7 +47,7 @@ Important note! My setup includes automated theme switching via the desktop menu
 3. Add ~/bin to $PATH  
   
 Source ~/bin to $PATH environment variable:  
-`echo "export PATH='\$HOME/bin:\$PATH'" >> .xinitrc`  
+`echo "export PATH='\$HOME/bin:\$PATH'" >> ~/.xinitrc`  
 (side note, many of the bash scripts are just meant to be used by the awesomewm config files in the interest of refactored code, you don't need to worry about using them yourself all that much.)  
   
 4. Install the fonts  
@@ -58,14 +58,15 @@ Best Valentina
 Blacksword  
 Ubuntu-Light  
 simplifica  
-adobe source code pro  
-cantarell  
+*adobe source code pro  
+*cantarell  
 storybook ending  
 pretty girls script  
   
-The fonts should become globally accessible by installing them, unzipping them if necessary, and moving the .ttf or .otf files to /usr/share/fonts:  
-`sudo mv <FONT_FILE> /usr/share/fonts`  
-Then do `fc-cache -v` to refresh system fonts.  
+These fonts are included in the fonts folder of this repository. To install the fonts:  
+`sudo cp fonts /usr/share/fonts`  
+Then refresh system fonts:  
+`fc-cache -v`  
   
 # Automated theme switching:  
 Thanks to some light bash scripting, awesomewm config, and janky tkinter animations, you can switch the general theme of your computer via the main menu, available by right-clicking on the desktop. This changes the colors, fonts, and layout of the taskbar and sidebar, as well as the default look of alacritty.
