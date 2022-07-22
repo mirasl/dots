@@ -1,4 +1,7 @@
 ### ALACRITTY CONFIG ###
+# The line that changes the color scheme at the end of this file is written by the 
+# theme.sh script when changing the current theme of the desktop, and it relies on 
+# the numbered theme names. 
 
 window:
   # Blank space added around the window in pixels. This padding is scaled
