@@ -77,9 +77,9 @@ These are my default hotkeys. You can change these in rc.lua, under the BINDINGS
   
 | Hotkey                | Function                              |
 |-----------------------|---------------------------------------|
-| super ;               | toggle sidebar                        |  
-| super shift ;         | toggle taskbar                        |  
-| super ctrl ;          | enter logout screen                   |  
+| super semicolon       | toggle sidebar                        |  
+| super shift semicolon | toggle taskbar                        |  
+| super ctrl semicolon  | enter logout screen                   |  
 | super up_arrow        | raise opacity of current window       |  
 | super down_arrow      | lower opacity of current window       |  
 | super shift up_arrow  | set opacity of current window to 100  |  
