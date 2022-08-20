@@ -21,7 +21,7 @@ Hello there, thanks for dropping by! These are my linux dotfiles. Feel free to r
   
 1. Install the packages  
   
-On arch:  
+On arch, using yay:  
 `yay -S acpi alacritty alsa-utils awesome cmatrix code firefox pavucontrol pulseaudio picom-jonaburg-git python python-pillow python-pip rofi ranger rofi-calc spotify thunar`  
   
 2. Install my files  
@@ -37,6 +37,7 @@ Backup your rofi config: `mv ~/.config/rofi ~/.config/rofi_backup`
 Backup your alacritty config: `mv ~/.config/alacritty ~/.config/alacritty_backup`  
   
 Next, move the files you want into your actual config file.   
+`cd ~/dots` (if you're not there already)  
 Move awesome: `cp -r .config/awesome ~/.config/awesome`  
 Move picom: `cp -r .config/picom ~/.config/picom`  
 Move alacritty: `cp -r .config/alacritty ~/.config/alacritty`  
@@ -44,13 +45,20 @@ Move rofi: `cp -r .config/rofi ~/.config/rofi`
   
 Important note! My setup includes automated theme switching via the desktop menu. This relies on having picom, alacritty, and rofi setup in the way I configured them and otherwise could mess things up. See the Automated Theme Switching section below for more info.  
   
-3. Add ~/bin to $PATH  
+3. Modify tag colors:  
+
+`cp ~/dots/other/taglist.lua /usr/share/awesome/lib/awful/widget/taglist.lua`  
+`cp ~/dots/other/tag.lua /usr/share/awesome/lib/awful/tag.lua`  
+(Moving these scripts is required, it changes awesome's tag files so that tags
+can have different colors when highlighted)  
+  
+4. Add ~/bin to $PATH  
   
 Source ~/bin to $PATH environment variable:  
 `echo "export PATH='\$HOME/bin:\$PATH'" >> ~/.xinitrc`  
 (side note, many of the bash scripts are just meant to be used by the awesomewm config files in the interest of refactored code, you don't need to worry about using them yourself all that much.)  
   
-4. Install the fonts  
+5. Install the fonts  
   
 Here are the fonts I used:  
 CHICKEN Pie  
