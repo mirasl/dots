@@ -11,7 +11,7 @@ pcall(require, "luarocks.loader")
 
 -- "hacker mode" - enable for useless slow boot that looks cool, starts every restart/startup.
 -- You must add "epicstart.sh" to $PATH for hacker_mode to work.
--- The window that appears is just a python file, feel free to configure it at ~/Documents/python/startup.py
+-- The window that appears is just a python file, feel free to configure it in ~/bin
 local hacker_mode = false
 
 -- imports:
@@ -377,7 +377,7 @@ globalkeys = gears.table.join(
     awful.key({ modkey, "Shift"  }, "semicolon", function() toggle_taskbar() end, -- toggle taskbar
         {description = "toggle taskbar", group = "extra"} ),
     awful.key({ modkey, "Control"  }, "semicolon", function() 
-            awful.spawn("python /home/mira/Documents/python/logout/logout.py") -- toggle end screen
+            awful.spawn.with_shell("~/bin/logout/logout.py") -- toggle end screen - for some reason, logout.py is not recognized even though it's been added to $PATH in .xinitrc, I really don't know lol
         end, 
         {description = "open logout screen", group = "extra"} ), 
 
