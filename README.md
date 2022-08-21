@@ -7,7 +7,7 @@ Hello there, thanks for dropping by! These are my linux dotfiles. Feel free to r
 | Tool                  | Program                               |  
 |-----------------------|---------------------------------------|  
 | Window manager        | awesomewm*                            |  
-| Application launcher  | rofi*                                 |  
+| Application launcher  | rofi                                 |  
 | Compositor            | picom jonaburg fork*                  |  
 | Terminal              | alacritty*                            |  
 | Brightness tool       | brillo (I like its options/arguments) |  
@@ -22,7 +22,8 @@ Hello there, thanks for dropping by! These are my linux dotfiles. Feel free to r
 1. Install the packages  
   
 On arch, using yay:  
-`yay -S acpi alacritty alsa-utils awesome cmatrix code firefox pavucontrol pulseaudio picom-jonaburg-git python python-pillow python-pip rofi ranger rofi-calc spotify thunar`  
+`yay -S acpi alacritty alsa-utils awesome cmatrix pavucontrol pulseaudio picom-jonaburg-git python python-pillow python-pip rofi`  
+(other specifics may apply - for example, make sure you have pkg-config (`sudo pacman -S pkg-config`) before installing picom-jonagurg-git)
   
 2. Install my files  
   
@@ -36,7 +37,6 @@ Now is your chance to back stuff up! (If you don't have config files for these p
 ```
 mv ~/.config/awesome ~/.config/awesome_backup     # backup your awesome configs  
 mv ~/.config/picom ~/.config/picom_backup         # backup your picom configs  
-mv ~/.config/rofi ~/.config/rofi_backup           # backup your rofi configs  
 mv ~/.config/alacritty ~/.config/alacritty_backup # backup your alacritty configs  
 ```
   
@@ -46,7 +46,6 @@ cd ~/dots # (if you're not there already)
 cp -r .config/awesome ~/.config/awesome  
 cp -r .config/picom ~/.config/picom  
 cp -r .config/alacritty ~/.config/alacritty  
-cp -r .config/rofi ~/.config/rofi  
 ```
   
 Important note! My setup includes automated theme switching via the desktop menu. This relies on having alacritty setup in the way I configured it and otherwise could mess things up. See the Automated Theme Switching section below for more info.  
@@ -54,8 +53,8 @@ Important note! My setup includes automated theme switching via the desktop menu
 3. Modify tag colors:  
    
 ```
-cp ~/dots/other/taglist.lua /usr/share/awesome/lib/awful/widget/taglist.lua  
-cp ~/dots/other/tag.lua /usr/share/awesome/lib/awful/tag.lua  
+sudo cp ~/dots/other/taglist.lua /usr/share/awesome/lib/awful/widget/taglist.lua  
+sudo cp ~/dots/other/tag.lua /usr/share/awesome/lib/awful/tag.lua  
 ```
 (Moving these scripts is required, it changes awesome's tag files so that tags
 can have different colors when highlighted)  
