@@ -17,7 +17,7 @@ theme.font            = "Simplifica 17"
 theme.font_u          = "Simplifica "
 theme.primary_color   = "#1E1E2E"--"#c93443"
 theme.secondary_color = "#45475A"
-theme.wallpaper_path = "/home/mira/.config/awesome/assets/wallpapers/saturn_wallpaper.jpg"
+theme.wallpaper_path = "/home/mira/.config/awesome/assets/wallpapers/onett.png"
 
 -- BG
 theme.bg_normal     = "#222222"

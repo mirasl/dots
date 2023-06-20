@@ -86,16 +86,20 @@ theme.menu_width  = dpi(150)
 
 -- TAGS ===================================================================================
 theme.tags = { 
-    "  A  ",
-    "  B  ", 
-    "  C  ", 
-    "  D  ", 
-    "  E  ", 
-    "  F  ", 
-    "  G  "
+    "   second   ",
+    "   main   ", 
+    "   code i   ", 
+    "   code ii   ", 
+    "   i   ", 
+    "   ii   ", 
+    "   iii   ",
+    "   iv   ",
+    "   music   ",
 }
 
 theme.workspace_colors = {
+     "#db6975",
+     "#db6975",
      "#db6975",
      "#db6975",
      "#db6975",

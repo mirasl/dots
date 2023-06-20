@@ -1,5 +1,3 @@
--- CATPPUCCIN THEME --
-
 local theme_assets = require("beautiful.theme_assets")
 local xresources = require("beautiful.xresources")
 local dpi = xresources.apply_dpi
@@ -10,14 +8,17 @@ local themes_path = gfs.get_themes_dir()
 local icon_path = os.getenv("HOME") .. "/.config/awesome/assets/icons/"
 
 local theme = {}
--- background: '#1E1E2E' # base
--- foreground: '#CDD6F4' # text
+
 -- OVERALL IMPORTANT STUFF --
-theme.font            = "Simplifica 17"
-theme.font_u          = "Simplifica "
+theme.font            = "Blacksword 13"
+theme.font_u          = "Blacksword "
 theme.primary_color   = "#1E1E2E"--"#c93443"
 theme.secondary_color = "#45475A"
-theme.wallpaper_path = "/home/mira/.config/awesome/assets/wallpapers/saturn_wallpaper.jpg"
+theme.wallpaper_path = "/home/mira/.config/awesome/assets/wallpapers/pink.jpg"
+theme.taskbar_width = 1840
+theme.taskbar_height = 30
+theme.taskbar_x = 40
+theme.taskbar_y = 12
 
 -- BG
 theme.bg_normal     = "#222222"
@@ -32,31 +33,27 @@ theme.fg_focus      = "#ffffff"
 theme.fg_urgent     = "#ffffff"
 theme.fg_minimize   = "#ffffff"
 
--- TASKBAR
-theme.taskbar_width = 1840 --500
-theme.taskbar_height = 35
-theme.taskbar_x = 40 -- 700
-theme.taskbar_y = 12
-
--- TASKLIST
+-- tasklist:
 theme.tasklist_disable_icon = true
 theme.tasklist_font = theme.font
 theme.tasklist_align = "center"
 theme.tasklist_fg_focus = theme.fg_normal
+theme.tasklist_bg_focus = theme.primary_color
 
--- WINDOWS
-theme.useless_gap   = dpi(18)
+theme.useless_gap   = dpi(0)
 theme.border_width  = dpi(0)
-theme.titlebar_size = dpi(0)
 theme.border_normal = theme.primary_color
 theme.border_focus  = theme.secondary_color
 theme.border_marked = "#91231c"
 
 theme.titlebar_bg = theme.primary_color
 theme.titlebar_bg_focus = theme.secondary_color
+theme.titlebar_size = dpi(0)
 
 -- SIDEBAR --
 theme.sb_x = 26
+theme.sb_fontsize1 = 18
+theme.sb_fontsize2 = 20
 --theme.sb_y = 75
 --theme.sb_height = 955
 theme.sb_fg = theme.fg_normal
@@ -83,6 +80,11 @@ theme.brightness_color_bg = "#f9e2af" -- yellow
 theme.volume_color_bg = "#c5a6ed"--"#94e2d5"
 theme.volume_color_main = "#a86ff2"--"#74c7ec" -- sapphire
 
+-- theme.sb_align_position = "right"
+-- theme.sb_width = 250
+-- theme.sb_x = 1920 - theme.sb_width - 40
+-- theme.sb_height = 970
+
 -- Generate taglist squares:
 local taglist_square_size = dpi(4)
 theme.taglist_squares_sel = theme_assets.taglist_squares_sel(
@@ -100,32 +102,32 @@ theme.notification_bg = theme.primary_color
 theme.menu_bg_normal = theme.primary_color
 -- menu_[border_color|border_width]
 theme.menu_submenu_icon = themes_path.."default/submenu.png"
-theme.menu_height = dpi(20)
-theme.menu_width  = dpi(150)
+theme.menu_height = dpi(0)
+theme.menu_width  = dpi(0)
 
 -- TAGS ===================================================================================
 theme.tags = { 
-    "   second   ",
-    "   main   ",
-    "   code   ",
-    "   code ii   ", 
-    "   art   ", 
+    "   Second   ",
+    "   Main   ", 
+    "   Code i   ", 
+    "   Code ii   ", 
     "   i   ", 
-    "   ii   ",
-    "   iii  ",
-    "   music   ",
+    "   ii   ", 
+    "   iii   ",
+    "   iv   ",
+    "   Music   ",
 }
 
 theme.workspace_colors = {
-    '#F38BA8', -- red
-    '#cba6f7', -- mauve
-    '#fab387', -- peach
-    '#F5C2E7', -- pink
-    '#94E2D5', -- teal
-    '#F9E2AF', -- yellow
-    '#A6E3A1', -- green
-    '#89B4FA', -- blue
-    '#94E2D5', -- teal
+     "#db6975",
+     "#db6975",
+     "#db6975",
+     "#db6975",
+     "#db6975",
+     "#db6975",
+     "#db6975",
+     "#db6975",
+     "#db6975",
 } 
 
 -- IMAGES =========================================================================================
@@ -157,7 +159,7 @@ theme.titlebar_maximized_button_focus_inactive  = icon_path.."maximize_focus.png
 theme.titlebar_maximized_button_normal_active = icon_path.."minimize_normal.png"
 theme.titlebar_maximized_button_focus_active  = icon_path.."minimize_focus.png"
 
-theme.wallpaper = themes_path.."/usr/share/backgrounds/pink.jpg"
+theme.wallpaper = themes_path.."/usr/share/backgrounds/city_wallpaper.png"
 
 -- You can use your own layout icons like this:
 theme.layout_fairh = themes_path.."default/layouts/fairhw.png"

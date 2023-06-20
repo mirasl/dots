@@ -13,7 +13,7 @@ local theme = {}
 -- background: '#1E1E2E' # base
 -- foreground: '#CDD6F4' # text
 -- OVERALL IMPORTANT STUFF --
-theme.font            = "Simplifica 17"
+theme.font            = "Simplifica 14"
 theme.font_u          = "Simplifica "
 theme.primary_color   = "#1E1E2E"--"#c93443"
 theme.secondary_color = "#45475A"
@@ -105,15 +105,15 @@ theme.menu_width  = dpi(150)
 
 -- TAGS ===================================================================================
 theme.tags = { 
-    "   second   ",
-    "   main   ",
-    "   code   ",
-    "   code ii   ", 
-    "   art   ", 
-    "   i   ", 
-    "   ii   ",
-    "   iii  ",
-    "   music   ",
+    "   단말기   ", -- command
+    "   브라우저1   ", -- browser 1
+    "   브라우저2   ", -- broswer 2
+    "   코드   ", -- code
+    "   일   ", -- i
+    "   이   ", -- ii
+    "   삼   ", -- iii
+    "   사  ", -- iv
+    "   음악   ", -- music
 }
 
 theme.workspace_colors = {
