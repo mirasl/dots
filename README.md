@@ -22,7 +22,7 @@ Hello there, thanks for dropping by! These are my linux dotfiles. Feel free to r
 1. Install the packages  
   
 On arch, using yay:  
-`yay -S acpi alacritty alsa-utils awesome cmatrix pavucontrol pulseaudio picom-jonaburg-git python python-pillow python-pip rofi`  
+`yay -S acpi alacritty alsa-utils awesome cmatrix pavucontrol pulseaudio picom-jonaburg-git python python-pillow python-pip rofi scrot`  
 (other specifics may apply - for example, make sure you have pkg-config (`sudo pacman -S pkg-config`) before installing picom-jonagurg-git)
   
 2. Install my files  
