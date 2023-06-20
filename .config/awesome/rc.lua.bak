@@ -1,20 +1,11 @@
---- MAIN CONFIG FILE --
 
--- This file is simply a modified, not completely rewritten, version of the
--- default rc.lua. It includes configuration for the top taskbar, but not for
--- the sidebar, see sidebar.lua.
 -- NOTE: I also have configured:
+-- * ~/.config/awesome/theme.lua
 -- * /usr/share/awesome/lib/awful/widget/taglist.lua (scroll until you find the long horizontal line, can't miss it)
--- * /usr/share/awesome/lib/awful/tag.lua (also long horizontal line)
--- If you do not want to deal with the above configurations, just change the taglist code below back to the default.
+-- * /usr/share/awesome/lib/awful/tag.lua (same marker as taglist described above)
+
 pcall(require, "luarocks.loader")
 
--- "hacker mode" - enable for useless slow boot that looks cool, starts every restart/startup.
--- You must add "epicstart.sh" to $PATH for hacker_mode to work.
--- The window that appears is just a python file, feel free to configure it in ~/bin
-local hacker_mode = false
-
--- imports:
 local gears = require("gears") -- Standard awesome library
 local awful = require("awful")
 require("awful.autofocus") 
@@ -23,21 +14,17 @@ local beautiful = require("beautiful") -- Theme handling library
 local naughty = require("naughty") -- Notification library
 local menubar = require("menubar")
 local hotkeys_popup = require("awful.hotkeys_popup") -- Enable hotkeys help widget for VIM and other apps
-local current_theme = require("current_theme") -- see "current_theme.lua"
+local current_theme = require("current_theme")
 -- Other imports:
 local batteryarc_widget = require("awesome-wm-widgets.batteryarc-widget.batteryarc")
 local cpu_widget = require("awesome-wm-widgets.cpu-widget.cpu-widget")
 local volume_widget = require('awesome-wm-widgets.volume-widget.volume')
 local calendar_widget = require("awesome-wm-widgets.calendar-widget.calendar")
 
-local volume_width = beautiful.taskbar_volume_width or 70
-
-sb = require("sidebar") -- see sidebar.lua
-
 -- when client with a matching name is opened:
 require("awful.hotkeys_popup.keys")
 
--- {{{ ERROR HANDLING
+-- {{{ ERROR HANDLING ===========================================================================
 -- Check if awesome encountered an error during startup and fell back to
 -- another config (This code will only ever execute for the fallback config)
 if awesome.startup_errors then
@@ -65,15 +52,9 @@ end
 local themes = {
     "fruit",
     "fantasy",
-    "pico",
+    "pico8",
     "whisper",
     "pink",
-    "catppuccin",
-    "catppuccin-korean",
-    "onett",
-    "whisper-dark",
-	"pink-catpuccin",
-	"full"
 }
 
 -- current_theme.lua sets the theme, so terminal can easily printf into it
@@ -81,7 +62,7 @@ local themes = {
 local theme = current_theme 
 
 
--- {{{
+-- {{{ VARIABLE DEFINITIONS =====================================================================
 
 beautiful.init("/home/mira/.config/awesome/themes/"..themes[theme]..".lua")
 
@@ -102,11 +83,11 @@ awful.layout.layouts = {
 }
 -- }}}
 
--- {{{ MENU (right click on desktop)
+-- {{{ MENU ======================================================================================
 -- Theme select:
-thememenu = {}
+thememenu = {nil}
 for i=1, #themes do
-    table.insert(thememenu, {themes[i], function() awful.spawn.with_shell("transition.py "..i) end })
+    table.insert(thememenu, {themes[i], function() awful.util.spawn("theme.sh "..i) end })
 end
 
 -- Main menu:
@@ -124,20 +105,19 @@ menubar.utils.terminal = terminal -- Set the terminal for applications that requ
 -- Keyboard map indicator and switcher
 mykeyboardlayout = awful.widget.keyboardlayout()
 
--- {{{ TASKBAR
-mytextclock = wibox.widget.textclock() -- clock
-local cw = calendar_widget({ -- calendar popup
+-- {{{ TASKBAR ==================================================================================
+-- Create a textclock widget
+mytextclock = wibox.widget.textclock()
+local cw = calendar_widget({
     start_sunday = true,
     radius = 20,
 })
-
--- calendar pops up when textclock pressed:
-mytextclock:connect_signal("button::press", 
+mytextclock:connect_signal("button::press",
     function(_,_,_, button)
         if button == 1 then cw.toggle() end
     end)
 
--- Create a wibox for each screen and add it:
+-- Create a wibox for each screen and add it
 local taglist_buttons = gears.table.join(
                     awful.button({ }, 1, function(t) t:view_only() end),
                     awful.button({ modkey }, 1, function(t)
@@ -178,7 +158,7 @@ local tasklist_buttons = gears.table.join(
                                           end))
 
 awful.screen.connect_for_each_screen(function(s)
-    -- TAGS (different tags can have different colors based on changes to taglist.lua and tag.lua, see top comments):
+    -- TAGS:
     awful.tag(beautiful.tags, s, awful.layout.layouts[1], beautiful.workspace_colors)
 
     -- Create an imagebox widget which will contain an icon indicating which layout we're using.
@@ -189,38 +169,45 @@ awful.screen.connect_for_each_screen(function(s)
                            awful.button({ }, 3, function () awful.layout.inc(-1) end),
                            awful.button({ }, 4, function () awful.layout.inc( 1) end),
                            awful.button({ }, 5, function () awful.layout.inc(-1) end)))
-
     -- Create a taglist widget
     s.mytaglist = awful.widget.taglist {
         screen  = s,
         filter  = awful.widget.taglist.filter.all,
-        buttons = taglist_buttons,
+        -- layout  = { -- for vertical
+        --     spacing         = 10,
+        --     spacing_widget  = wibox.widget.seperator,
+        --     layout          = wibox.layout.fixed.vertical
+        -- },
+        buttons = taglist_buttons
     }
 
     -- Create a tasklist widget
     s.mytasklist = awful.widget.tasklist {
         screen  = s,
-        filter  = awful.widget.tasklist.filter.focused,
+        filter  = awful.widget.tasklist.filter.currenttags,
+        -- layout  = { -- for vertical
+        --     layout = wibox.layout.fixed.vertical
+        -- },
         buttons = tasklist_buttons
     }
 
-    -- rounded corners shape, compositor may already do this:
+    -- Create the wibox
     function custom_shape(cr, width, height)
         gears.shape.rounded_rect(cr, width, height, RADIUS)
     end
 
-    -- Invisible wibar, pushes all other windows down to accomodate for top bar:
+    -- Top bar:
+    -- Pushes all other windows down to accomodate for top bar:
     s.invisible_wibar = awful.wibar({ 
         position = "top", 
         screen = s, 
         opacity = 0, 
         border_width = 0, 
         ontop = false, 
-        height = 28,
-        visible = true,
+        height = 28
     })
 
-    -- Sets invisible boundaries for pico-8 screen
+    -- Sets invisible boundary for pico-8 screen
     if theme == 3 then
         s.border_left = awful.wibar({
             position = "left",
@@ -244,83 +231,33 @@ awful.screen.connect_for_each_screen(function(s)
         })
     end
     
-    -- volume_spacer = wibox.widget.textbox(" ")
-    -- volume_spacer.forced_width = volume_width
-
     -- Top wibox:
-    local wibox_visible = theme ~= 3 -- hide top bar entirely if theme is 3 (pico8)
-    s.mywibox = wibox({ 
-        visible = wibox_visible, 
-        x = beautiful.taskbar_x, 
-        y = beautiful.taskbar_y, 
-        screen = s, 
-        width = beautiful.taskbar_width, 
-        height = beautiful.taskbar_height, 
-        shape = custom_shape,
-        bg_color = beautiful.primary_color,
-        bg = beautiful.primary_color,
-    })
-
+    local wibox_visible = theme ~= 3 -- hide top bar entirely if theme is 3 (pixo8)
+    s.mywibox = wibox({ visible = wibox_visible, x = beautiful.taskbar_x, y = beautiful.taskbar_y, screen = s, width = beautiful.taskbar_width, height = beautiful.taskbar_height, shape = custom_shape})
+    s.mywibox.bg_color = beautiful.primary_color
+    s.mywibox.bg = beautiful.primary_color
     s.mywibox:setup {
         layout = wibox.layout.align.horizontal,
         { -- Left widgets
             layout = wibox.layout.fixed.horizontal,
             s.mytaglist,
-        },
-        s.mytasklist,
-        {
-	    layout = wibox.layout.fixed.horizontal,
-            wibox.widget.textbox(" "),
             cpu_widget(),
             batteryarc_widget(),
             volume_widget{
-                widget_type = 'horizontal_bar',
-                main_color = beautiful.volume_color_main or "#8334eb",
-                bg_color = beautiful.volume_color_bg or "#ba8ff2",
+                widget_type = 'horizontal_bar'
             },
-            volume_spacer,
             mytextclock,
             s.mylayoutbox,
             spacing = 5,
         },
+        nil,
+	nil,
     }
-
-    -- local volume_x = volume_spacer.x
-    -- local volume_y = volume_spacer.y
-
-    -- s.volume_container = wibox({
-    --     visible = true,
-    --     ontop = true,
-    --     screen = screen.primary,
-    --     y = volume_y,
-    --     x = volume_x,
-    --     width = volume_width,
-    --     height = 20, --2*interval + MORTAR,
-    --     shape = custom_shape,
-    --     --opacity = 0
-    --     bg = volume_color_main,
-    --     -- fg = sb_fg,
-    -- })
-
-    -- s.volume_container:setup {
-    --     layout = wibox.layout.rotate,
-    --     direction = "north",
-    --     {
-    --         layout = wibox.container.place, 
-    --         volume_widget{
-    --             widget_type = 'horizontal_bar',
-    --             width = volume_width,
-    --             margins = 0,
-    --             main_color = volume_color_main,
-    --             bg_color = volume_color_bg,
-    --         },
-    --     },
-    -- }
 end)
 -- }}}
 
 
--- BINDINGS:
+-- BINDINGS: =================================================================================
 -- {{{ Mouse bindings
 root.buttons(gears.table.join(
     awful.button({ }, 3, function () mymainmenu:toggle() end),
@@ -328,13 +265,6 @@ root.buttons(gears.table.join(
     awful.button({ }, 5, awful.tag.viewprev)
 ))
 -- }}}
-
-function toggle_taskbar()
-    for s in screen do
-        s.invisible_wibar.visible = not s.invisible_wibar.visible
-        s.mywibox.visible = not s.mywibox.visible
-    end
-end
 
 -- {{{ Key bindings
 globalkeys = gears.table.join(
@@ -349,62 +279,20 @@ globalkeys = gears.table.join(
     
     -- Audio keyboard controls, configured for pulseaudio
     awful.key({ }, "XF86AudioRaiseVolume", function ()
-        --awful.util.spawn("sh -c \"pactl set-sink-mute @DEFAULT_SINK@ false ; pactl set-sink-volume @DEFAULT_SINK@ +5%\"")
-        volume_widget:inc(5)
-        end ),
+        awful.util.spawn("sh -c \"pactl set-sink-mute @DEFAULT_SINK@ false ; pactl set-sink-volume @DEFAULT_SINK@ +5%\"")end ),
     awful.key({ }, "XF86AudioLowerVolume", function ()
-        --awful.util.spawn("sh -c \"pactl set-sink-mute @DEFAULT_SINK@ false ; pactl set-sink-volume @DEFAULT_SINK@ -5%\"")
-        volume_widget:dec(5)
-        end ),
+        awful.util.spawn("sh -c \"pactl set-sink-mute @DEFAULT_SINK@ false ; pactl set-sink-volume @DEFAULT_SINK@ -5%\"")end ),
     awful.key({ }, "XF86AudioMute", function ()
-        --awful.util.spawn("pactl set-sink-mute @DEFAULT_SINK@ toggle")end ),    --"pactl set-sink-mute %DEFAULT_SINK% toggle")
-        volume_widget:toggle()
-        end ),
+        awful.util.spawn("pactl set-sink-mute @DEFAULT_SINK@ toggle")end ),    --"pactl set-sink-mute %DEFAULT_SINK% toggle")end ),
     
-    -- Brightness controls (see sidebar.lua for commands executed):
-    awful.key({ }, "XF86MonBrightnessDown", function () sb.brightness_dec(5) end),
-    awful.key({ }, "XF86MonBrightnessUp", function () sb.brightness_inc(5) end),
-
-    -- With picom, changes current window opacity:
+    -- with picom, changes current window opacity:
     awful.key({ modkey,}, "Up", function () 
-        awful.util.spawn("picom-trans -c +5") end, -- raise opacity
-        {description = "raise opacity", group = "client"} ),
+        awful.util.spawn("picom-trans -c +5") end ),
     awful.key({ modkey,}, "Down", function () 
-        awful.util.spawn("picom-trans -c -5") end, -- lower opacity
-        {description = "lower opacity", group = "client"} ),
+        awful.util.spawn("picom-trans -c -5") end ),
     awful.key({ modkey, "Control"}, "Up", function ()
-        awful.util.spawn("picom-trans -c 100") end, -- set opacity to 100
-        {description = "set opacity to 100", group = "client"} ),
-
-    -- extra widget hotkeys:
-    awful.key({ modkey,}, "semicolon", function() sb.toggle_sidebar() end, -- toggle sidebar
-        {description = "toggle sidebar", group = "extra"} ),
-    awful.key({ modkey, "Shift"  }, "semicolon", function() toggle_taskbar() end, -- toggle taskbar
-        {description = "toggle taskbar", group = "extra"} ),
-    awful.key({ modkey, "Control"  }, "semicolon", function() 
-            awful.spawn.with_shell("~/bin/logout/logout.py") -- toggle end screen - for some reason, logout.py is not recognized even though it's been added to $PATH in .xinitrc, I really don't know lol
-        end, 
-        {description = "open logout screen", group = "extra"} ), 
-
-    -- screenshot:
-    awful.key({}, "Print", function()
-            awful.spawn.with_shell("~/bin/screenshot")
-        end),
-
-    awful.key({"Control"}, "Print", function()
-            awful.spawn.with_shell("~/bin/screenshot select")
-        end),
+        awful.util.spawn("picom-trans -c 100") end),
     
-    awful.key({"Shift"}, "Print", function()
-            awful.spawn.with_shell("~/bin/screenshot window")
-        end),
-	
-		-- lock:
-	awful.key({ modkey }, "-", function() 
-			awful.util.spawn_with_shell("lock") 
-		end, 
-		{description = "lock computer"}),
-
     awful.key({ modkey,           }, "j",
         function ()
             awful.client.focus.byidx( 1)
@@ -479,7 +367,7 @@ globalkeys = gears.table.join(
 
     -- Prompt
     awful.key({ modkey },            "r",     function ()
-    awful.util.spawn("rofi -show drun") end,
+    awful.util.spawn("dmenu_run") end,
               {description="run_dmenu", group="launcher"}),
     -- Menubar
     awful.key({ modkey }, "p", function() menubar.show() end,
@@ -598,7 +486,7 @@ clientbuttons = gears.table.join(
 root.keys(globalkeys)
 -- }}}
 
--- {{{ RULES
+-- {{{ RULES =====================================================================================
 -- Rules to apply to new clients (through the "manage" signal).
 awful.rules.rules = {
     -- All clients will match this rule.
@@ -651,12 +539,12 @@ awful.rules.rules = {
     },
 
     -- Set Firefox to always map on the tag named "2" on screen 1.
-    --{ rule = { class = "Firefox" },
-    --  properties = { screen = 1, tag = "2" } },
+    -- { rule = { class = "Firefox" },
+    --   properties = { screen = 1, tag = "2" } },
 }
 -- }}}
 
--- {{{ SIGNALS
+-- {{{ SIGNALS ====================================================================================================
 -- Signal function to execute when a new client appears.
 client.connect_signal("manage", function (c)
     -- Set the windows at the slave,
@@ -703,13 +591,11 @@ client.connect_signal("request::titlebars", function(c)
             layout  = wibox.layout.flex.horizontal
         },
         { -- Right
-
             awful.titlebar.widget.floatingbutton (c),
             awful.titlebar.widget.maximizedbutton(c),
             awful.titlebar.widget.stickybutton   (c),
             --awful.titlebar.widget.ontopbutton    (c),
             awful.titlebar.widget.closebutton    (c),
-            wibox.widget.textbox(" "),
 
             layout = wibox.layout.fixed.horizontal
         },
@@ -726,12 +612,7 @@ client.connect_signal("focus", function(c) c.border_color = beautiful.border_foc
 client.connect_signal("unfocus", function(c) c.border_color = beautiful.border_normal end)
 -- }}}
 
--- {{{ AUTOSTART
+-- Autostart Applications
 --awful.spawn.with_shell("nitrogen --restore")
-awful.spawn.with_shell("picom --experimental-backends")
-if hacker_mode then
-    awful.spawn.with_shell("epicstart.sh")
-end
+awful.spawn.with_shell("picom --experimental-backend")
 gears.wallpaper.maximized(beautiful.wallpaper_path)
--- awful.util.spawn_with_shell('~/.config/awesome/locker.sh')
--- }}}

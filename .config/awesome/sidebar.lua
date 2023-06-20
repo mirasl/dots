@@ -22,6 +22,11 @@ local themes = {
     "whisper",
     "pink",
     "catppuccin",
+    "catppuccin-korean",
+    "onett",
+    "whisper-dark",
+	"pink-catpuccin",
+	"full"
 }
 
 -- set theme based on contents of current_theme.lua (can 
@@ -47,6 +52,8 @@ local align_position = beautiful.sb_align_position or "left" -- "left" or "right
 local MORTAR = beautiful.sb_mortar or 10
 local interval = (sb_height - 9*MORTAR) / 10
 local font_u = beautiful.font_u or "CHICKEN Pie " -- universally resizable font, without number
+local fontsize1 = beautiful.sb_fontsize1 or "35"
+local fontsize2 = beautiful.sb_fontsize2 or "28"
 
 local volume_color_main = beautiful.volume_color_main or "#8334eb"
 local volume_color_bg = beautiful.volume_color_bg or "#ba8ff2"
@@ -132,7 +139,7 @@ end
 
 -- {{{ CLOCK:
 clock = wibox.widget.textclock("<span foreground='"..clock_fg.."'>%H:%M:%S</span>", 1)
-clock.font = font_u.."35"
+clock.font = font_u..fontsize1
 
 clock_box = hbox(sb_y)
 
@@ -150,7 +157,7 @@ table.insert(sidebar, clock_box)
 
 -- {{{ GREETING:
 greeting = wibox.widget.textbox("<span foreground='"..greeting_fg.."'>Hello, "..name.."</span>")
-greeting.font = font_u.."28"
+greeting.font = font_u..fontsize2
 
 greeting_box = hbox(sb_y + interval + MORTAR)
 
