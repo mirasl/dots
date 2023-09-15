@@ -1,6 +1,13 @@
 # Intro    
   
 Hello there, thanks for dropping by! These are my linux dotfiles. Feel free to read through my configurations or use for your own setup. Enjoy!  
+
+# Screenshots
+
+![2023-09-14-20:53:58](https://github.com/mirasl/dots/assets/109443521/4dec0146-1ced-4bd0-9b3d-ed5e3c941576)
+![2023-09-14-20:55:06](https://github.com/mirasl/dots/assets/109443521/2a0055b7-efd7-4fa8-9882-60890de535f8)
+![2023-09-14-20:57:06](https://github.com/mirasl/dots/assets/109443521/0bff9b50-2e40-4fa9-b8df-c6e41331214c)
+
   
 # Programs I use  
   
