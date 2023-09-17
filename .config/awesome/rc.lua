@@ -362,8 +362,14 @@ globalkeys = gears.table.join(
         end ),
     
     -- Brightness controls (see sidebar.lua for commands executed):
-    awful.key({ }, "XF86MonBrightnessDown", function () sb.brightness_dec(5) end),
-    awful.key({ }, "XF86MonBrightnessUp", function () sb.brightness_inc(5) end),
+    awful.key({ }, "XF86MonBrightnessDown", function () 
+        sb.brightness_dec(10) 
+        os.execute('pkexec /usr/bin/brillo -U 10')
+        end),
+    awful.key({ }, "XF86MonBrightnessUp", function () 
+        sb.brightness_inc(10) 
+        os.execute('pkexec /usr/bin/brillo -A 10')
+        end),
 
     -- With picom, changes current window opacity:
     awful.key({ modkey,}, "Up", function () 
