@@ -110,3 +110,7 @@ These are my default hotkeys. You can change these in rc.lua, under the BINDINGS
 | super up_arrow        | raise opacity of current window       |  
 | super down_arrow      | lower opacity of current window       |  
 | super shift up_arrow  | set opacity of current window to 100  |  
+
+# Final stuff
+
+As a note, this project contains some files from the awesome-wm-widgets repository by streetturtle (the project is under the MIT license). It's a great set of widgets which work very well with awesomewm, so go check it out yourself!
