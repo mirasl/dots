@@ -12,11 +12,11 @@ local icon_path = os.getenv("HOME") .. "/.config/awesome/assets/icons/"
 local theme = {}
 
 -- OVERALL IMPORTANT STUFF --
-theme.font            = "Simplifica 17"
-theme.font_u          = "Simplifica "
+theme.font            = "Blacksword 13"--"Simplifica 17"
+theme.font_u          = "Blacksword "--"Simplifica "
 theme.primary_color   = "#000000"--"#c93443"
-theme.secondary_color = "#000000"
-theme.wallpaper_path = "/home/mira/.config/awesome/assets/wallpapers/pink.jpg"
+theme.secondary_color = "#ff76c4"--"#f59fab"--"#000000"
+theme.wallpaper_path = "/home/mira/.config/awesome/assets/wallpapers/cat.jpg"
 
 -- BG
 theme.bg_normal     = "#222222"
@@ -32,9 +32,9 @@ theme.fg_urgent     = "#ffffff"
 theme.fg_minimize   = "#ffffff"
 
 -- TASKBAR
-theme.taskbar_width = 1840 --500
+theme.taskbar_width = 2495 --500
 theme.taskbar_height = 35
-theme.taskbar_x = 40 -- 700
+theme.taskbar_x = 30 -- 700
 theme.taskbar_y = 12
 
 -- TASKLIST
@@ -42,6 +42,7 @@ theme.tasklist_disable_icon = true
 theme.tasklist_font = theme.font
 theme.tasklist_align = "center"
 theme.tasklist_fg_focus = theme.fg_normal
+theme.tasklist_bg_focus = theme.primary_color
 
 -- WINDOWS
 theme.useless_gap   = dpi(18)
@@ -55,16 +56,16 @@ theme.titlebar_bg = theme.primary_color
 theme.titlebar_bg_focus = theme.secondary_color
 
 -- SIDEBAR --
-theme.sb_fg = "#f59fab"
+theme.sb_fg = "#ff76c4"--"#f59fab"
 theme.sb_bg = "#000000"
-theme.sb_width = 200
-theme.sb_x = 1920 - theme.sb_width - 40
+theme.sb_width = 250
+theme.sb_x = 40--1920 - theme.sb_width - 40
 theme.sb_opacity = 1
 theme.volume_color_main = theme.sb_fg
 theme.volume_color_bg = "#1a1a1a"
 theme.brightness_color_main = theme.sb_fg
 theme.brightness_color_bg = "#1a1a1a"
-theme.sb_align_position = "right"
+-- theme.sb_align_position = "right"
 
 
 
@@ -90,16 +91,26 @@ theme.menu_width  = dpi(150)
 
 -- TAGS ===================================================================================
 theme.tags = { 
-    "          COMMAND          ",
-    "        BROWSER  I         ",
-    "       BROWSER  I I        ", 
-    "          CODE  I          ", 
-    "         CODE  I I         ", 
-    "            ART            ",
-    "             I             ",
-    "            I I            ",
-    "           I I I           ",
-    "           MUSIC       ",
+    -- "          COMMAND          ",
+    -- "        BROWSER  I         ",
+    -- "       BROWSER  I I        ", 
+    -- "          CODE  I          ", 
+    -- "         CODE  I I         ", 
+    -- "            ART            ",
+    -- "             I             ",
+    -- "            I I            ",
+    -- "           I I I           ",
+    -- "           MUSIC       ",
+    "          Command          ",
+    "        Browser  i         ",
+    "       Browser  i i        ", 
+    "          Code  i          ", 
+    "         Code  i i         ", 
+    "            Art            ",
+    "             i             ",
+    "            i i            ",
+    "           i i i           ",
+    "            i v        ",
 }
 
 theme.workspace_colors = {
